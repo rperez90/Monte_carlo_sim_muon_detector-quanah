@@ -28,7 +28,7 @@ MuonTree::MuonTree(int dummy){
 
    cout<<"initializing MuonTree..."<<endl;
 
-   string outname="muonTree01_wateronly_3MILL.root";
+   string outname="muonTree01.root";
    fout=new TFile(outname.c_str(),"recreate");
 
    histo1D["all_nGen"]=new TH1D("all_nGen","N of Gen Particles (all)",40,0.,40.0);
