@@ -8,7 +8,7 @@
    std::map<std::string, TH2D*>::iterator histo2Diter;
 
    TFile *f1 = new TFile("histEXP4_45deg_AIR_3MILL.root","READ");
-   TFile *f2 = new TFile("histEXP4_45deg_wateronly_3MILL.root","READ");
+   TFile *f2 = new TFile("histEXP4_45deg_0ftwater_3MILL.root","READ");
 
    TH1D* x11away=(TH1D*)f1->Get("xZ11");
    TH1D* x11tank=(TH1D*)f2->Get("xZ11");
@@ -50,10 +50,10 @@
    int ny=xy11away->GetNbinsY();
    cout<<"nx="<<nx<<"   ny="<<ny<<endl;
 
-   TH2D* plotA=new TH2D("plotA","MC (Water only)",13,-15.0,12.0,13,-15.0,12.0);
+   TH2D* plotA=new TH2D("plotA","MC (Empty tank)",13,-15.0,12.0,13,-15.0,12.0);
 //   TH2D* plotA=new TH2D("plotA","MC (Water 20ft)",12,-15.0,15.0,12,-15.0,15.0);
 
-   ofstream out ("wtwateronly.txt");
+   ofstream out ("wt0ft.txt");
    for (int ix=1; ix<nx; ix++) {
       for(int iy=1; iy<ny; iy++) {
        double wtA=xy11away->GetBinContent(ix,iy);
