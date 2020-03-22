@@ -56,21 +56,21 @@
    ofstream out ("wtwateronly.txt");
    for (int ix=1; ix<nx; ix++) {
       for(int iy=1; iy<ny; iy++) {
-         double wtA=xy11away->GetBinContent(ix,iy);
-         //double wtT=xy11tank->GetBinContent(nx-ix+2,iy);
-         double wtT=xy11tank->GetBinContent(ix,iy);
-	 double wt=wtT/wtA;
-         //cout<<"wt = "<<wtT<<endl;
-	 if(wt>1.1) wt=1.0;
-          double x=-25.0+2.0*ix-2.0/2.0;
-          double y=-25.0+2.0*iy-2.0/2.0;
-          //double x=2.5*(ix-26)-2.5/2.0;
-          //double y=2.5*(iy-25)-2.5/2.0;
-         plotA->Fill(x,y,wt);
-	 //cout<<"x="<<x<<" y="<<y<<" wt="<<wt<<endl;
-	 int bin_32ft = plotA->GetBinContent(wt);
-	 //cout<<"bin_32ft = "<<bin_32ft<<" wt = "<<wt<<endl;
-	 out<<wt<<endl;
+       double wtA=xy11away->GetBinContent(ix,iy);
+       //double wtT=xy11tank->GetBinContent(nx-ix+2,iy);
+       double wtT=xy11tank->GetBinContent(ix,iy);
+	   double wt=wtT/wtA;
+       //cout<<"wt = "<<wtT<<endl;
+	   if(wt>1.1) wt=1.0;
+       double x=-25.0+2.0*ix-2.0/2.0;
+       double y=-25.0+2.0*iy-2.0/2.0;
+       //double x=2.5*(ix-26)-2.5/2.0;
+       //double y=2.5*(iy-25)-2.5/2.0;
+       plotA->Fill(x,y,wt);
+	   //cout<<"x="<<x<<" y="<<y<<" wt="<<wt<<endl;
+	   int bin_32ft = plotA->GetBinContent(wt);
+	   //cout<<"bin_32ft = "<<bin_32ft<<" wt = "<<wt<<endl;
+	   out<<wt<<endl;
 	}
    }
   out.close();  
